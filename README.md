@@ -1,5 +1,5 @@
 # DermAI
-Your online artificial intelligence-based dermatologist.
+Your online artificial intelligence based dermatologist.
 
 ## Inspiration
 The cost of medical consultations with a qualified physician can often be prohibitively expensive, with even a brief follow-up lasting just a few minutes costing upwards of hundreds of dollars. In particular, patients seeking consultations with dermatologists for possibly harmful skin conditions may hesitate due to the high costs involved. Yet, it is crucial to not overlook the significance of a visit to the dermatologist, since early detection of skin cancer is critical to prevent its potentially fatal consequences. Regrettably, many individuals remain unaware of this fact, and often do not realize they have skin cancer until it has progressed significantly. With over 2 million cases of skin cancer every year in the United States, we feel this is an urgent issue that needs to be solved--mitigated at the very least.
