@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>DermAI</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}" />
+    <script src="../static/index.js"></script>
+</head>
+
+<body onload="">
+
+    <header>
+        <div class="logo">
+            <h1 class="fancy-text">DermAI</h1>
+            <img src="../static/logo.png" alt="DermAI Logo" width="50" height="50" class="logo">
+        </div>
+        <div class="tab-container">
+            <ul class="tabs">
+                <li><a href="home">Home</a></li>
+                <li><a href="findDermatologist">Find a Dermatologist</a></li>
+                <li><a href="diseaseTypes">Supported Skin Diseases</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="top-container">
+        <div>
+            <input type="file" style="display:none" id="image-input">
+            <button id="upload-image" onclick="upload()" type="uploadFile">Upload Image</button>
+        </div>
+
+
+        <br>
+    </div>
+
+    <!-- AI section to pull data from dataset.json for name, short paragraph, image, and link -->
+    <div class="container">
+        <div id="result1">
+            <img class="subject" id="image1" src="" />
+            <h1 id="disease">Most likely:  <span id="disease1"></span> (<span id="d_prob1"></span>)</h1>
+            <h2 id="category">Category: <span id="cat1"></span> (<span id="c_prob1"></span>)</h2>
+            <p id="shortDescription">Description: <span id="desc1"></span></p>
+            <a id="link1" href="">Click to learn more</a>
+        </div>
+    </div>
+    <div class="container">
+        <div id="result2">
+            <img class="subject" id="image2" src="" />
+            <h1 id="disease">Second most likely:  <span id="disease2"></span> (<span id="d_prob2"></span>)</h1>
+            <h2 id="category">Category: <span id="cat2"></span> (<span id="c_prob2"></span>)</h2>
+            <p id="shortDescription">Description: <span id="desc2"></span></p>
+            <a id="link2" href="">Click to learn more</a>
+        </div>
+    </div>
+
+        <script>
+            disease_types = ['Benign (noncancerous) lesion', 'Precancerous or cancerous lesion', 'Vascular lesion']
+            specific_types = [
+                ['atypical nevi', 'becker nevus',
+                    'unclassified benign skin lesion', 'blue nevus',
+                    'congenital nevus', 'dermatofibroma', 'halo-nevus', 'melanocytic nevi'],
+                ['basal cell carcinoma', 'Bowen\'s disease', 'melanoma'],
+                ['angiokeratomas', 'angiomas', 'kaposi sarcoma', 'pyogenic granulomas', 'telangiectasias',
+                    'unclassified vascular lesion', 'venous malformation']]
+
+            const fileInput = document.getElementById("image-input");
+            const result = document.getElementById("shortDescription");
+
+            function predict(){
+
+            
+                const file = fileInput.files[0];
+                const formData = new FormData();
+                formData.append("image", file);
+
+                fetch("/predict", {
+                    method: "POST",
+                    body: formData,
+                })
+                    .then((response) => response.json())
+                    .then(async (data) => {
+                        console.log(data);
+                        const cat1 = document.getElementById("cat1");
+                        const disease1 = document.getElementById("disease1");
+                        const desc1 = document.getElementById("desc1");
+                        const c_prob1 = document.getElementById("c_prob1");
+                        const d_prob1 = document.getElementById("d_prob1");
+                        const image1 = document.getElementById("image1");
+                        const link1 = document.getElementById("link1");
+                        const cat2 = document.getElementById("cat2");
+                        const disease2 = document.getElementById("disease2");
+                        const desc2 = document.getElementById("desc2");
+                        const c_prob2 = document.getElementById("c_prob2");
+                        const d_prob2 = document.getElementById("d_prob2");
+                        const image2 = document.getElementById("image2");
+                        const link2 = document.getElementById("link2");
+                        let jsonData;
+                        response = await fetch('../static/dataset.json');
+                        jsonData = await response.json();
+
+                        cat1.innerHTML = disease_types[data.category];
+                        disease1.innerHTML = specific_types[data.category][data.disease];
+                        desc1.innerHTML = jsonData.categories[data.category][data.disease].paragraph;
+                        //format c1_prob to 2 decimal points
+                        
+                        c_prob1.innerHTML = data.c1_prob.toFixed(2)*100 + "% accuracy";
+                        d_prob1.innerHTML = data.d1_prob.toFixed(2)*100 + "% accuracy";
+                        image1.src = "../static/" + jsonData.categories[data.category][data.disease].images;
+                        link1.href = jsonData.categories[data.category][data.disease].link;
+
+
+                        cat2.innerHTML = disease_types[data.category2];
+                        disease2.innerHTML = specific_types[data.category2][data.disease2];
+                        desc2.innerHTML = jsonData.categories[data.category2][data.disease2].paragraph;
+                        c_prob2.innerHTML = data.c2_prob.toFixed(2)*100 + "% accuracy";
+                        d_prob2.innerHTML = data.d2_prob.toFixed(2)*100 + "% accuracy";
+                        image2.src = "../static/" + jsonData.categories[data.category2][data.disease2].images;
+                        link2.href = jsonData.categories[data.category2][data.disease2].link;
+
+                    })
+                    .catch((error) => {
+                        console.error(error);
+                        result.innerHTML = "An error occurred.";
+                    });
+            }
+        </script>
+
+</body>
+
+</html>
