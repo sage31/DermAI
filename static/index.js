@@ -47,11 +47,6 @@ navigator.geolocation.getCurrentPosition(successCallback, errorCallback);
 function successCallback(position) {
     latitude = position.coords.latitude;
     longitude = position.coords.longitude;
-
-    // use the latitude and longitude data
-    console.log("Latitude: " + latitude + ", Longitude: " + longitude);
-    var x = document.getElementById("demo");
-    x.innerHTML = "Latitude: " + latitude + " Longitude: " + longitude;
     initMap();
 }
 

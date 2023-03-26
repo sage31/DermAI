@@ -1,29 +1,28 @@
-html{
-  font-family:""
-}
-body {
-  background: linear-gradient(to bottom, #00bfff, #ffffff);
-  color: #000000;
-  font-family: "Montserrat", sans-serif;
-  height: 100vh;
-  background-repeat: no-repeat;
+html {
+  font-family: "Ubuntu";
+  min-height:100%;
 }
 
-.diseasesTypesBody {
-  background: linear-gradient(to bottom, #00bfff, #ffffff);
-  color: #ffffff;
-  font-family: "Montserrat", sans-serif;
-  background-repeat: no-repeat;
+body {
+  background: linear-gradient(170deg, #87a4ae 0%, #3a89d7 40%);
+  color: #000000;
+  font-family: "Ubuntu", sans-serif;
+  min-height: 100%;
   height: 100%;
+  background-repeat: no-repeat;
 }
 
 .container {
-  margin-top: 100px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
   border-radius: 5px;
   padding: 20px;
+  background-color: white;
   max-width: 800px;
-  margin: 0 auto;
-  
+
+
 }
 
 /*white rounded corners*/
@@ -41,8 +40,8 @@ h1 {
   font-weight: 700;
   margin-top: 10px;
   margin-bottom: 10px;
-  text-align:left;
-  font-family: "Montserrat", sans-serif;
+  text-align: left;
+  font-family: "Ubuntu", sans-serif;
   color: #000000;
 }
 
@@ -58,12 +57,12 @@ h2 {
   margin-top: 20px;
   margin-bottom: 20px;
   text-align: center;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 p {
-  font-size: 1.5rem;
-  line-height: 2rem;
+  font-size: 1rem;
+  line-height: 1.5rem;
   margin-bottom: 20px;
   text-align: justify;
 }
@@ -73,6 +72,7 @@ span::after {
   content: '\00a0';
   font-family: sans-serif;
 }
+
 span {
   /*color: #000000;
   #font-weight: 700;*/
@@ -84,23 +84,23 @@ span {
   text-align: center;
   width: auto;
   margin: 5px auto;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 16px;
-  color: #ffffff;
-  background-color: #00bfff;
+  color: #000000;
+  background-color: #ffffff;
   /* Set the background color to light blue */
-  border: none;
-  border-radius: 4px;
+  border: 0;
+  border-radius: 20px;
   padding: 10px 20px;
   /* Create an inside glow effect */
-  transition: background-color 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 }
 
 .button:hover {
-  background-color: #ffffff;
-  /* Change the background color on hover for a subtle effect */
-  /* Adjust the glow effect on hover */
-  color: #00bfff;
+  box-shadow: 2px 8px 15px rgba(0, 0, 0, 0.2);
+  color: #000000;
+  cursor: pointer;
+
 }
 
 select {
@@ -108,7 +108,7 @@ select {
   text-align: center;
   width: auto;
   margin: 5px auto;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 16px;
   color: #ffffff;
   background-color: #00bfff;
@@ -146,7 +146,7 @@ input {
 }
 
 #radius {
-  font-family: "Montserrat", sans-serif;
+  font-family: "Ubuntu", sans-serif;
   font-size: 16px;
   color: #000000;
   border: none;
@@ -192,16 +192,11 @@ summary[role="button"] {
   background-color: #000;
   color: #fff;
   padding: 1rem;
-  font-weight: bold;
   cursor: pointer;
 }
 
 /* work on hover and focus to have different colors */
-summary[role="button"]:hover,
-summary[role="button"]:focus,
-summary::marker {
-  color: #ffffff;
-}
+
 
 summary::marker::hover {
   color: #004cff;
@@ -243,7 +238,7 @@ details p {
   color: black;
   transition: background 0.3s ease-in;
   border-radius: 20px;
-  font-family: "Montserrat", sans-serif;
+  font-family: "Ubuntu", sans-serif;
 }
 
 .tabs a:hover {
@@ -258,17 +253,6 @@ details p {
 
 .tab-pane.active {
   display: block;
-}
-
-#upload-image {
-  background-color: #ffffff;
-  color: #000000;
-  border: none;
-  padding: 10px 20px 10px 15px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  border-radius: 20px;
 }
 
 .subheading3 {
@@ -289,22 +273,7 @@ summary[role="button"] {
   background-color: #fff;
   color: #000;
   padding: 1rem;
-  font-weight: 700;
   cursor: pointer accentCol;
-}
-
-/* work on hover and focus to have different colors */
-
-summary[role="button"]:hover,
-summary::marker {
-  color: lightskyblue;
-  /* font-weight: 800; */
-}
-
-summary[role="button"]:focus,
-summary::marker {
-  color: rgb(10, 10, 149);
-  font-weight: 800;
 }
 
 details {
@@ -316,32 +285,21 @@ details p {
   margin: 0;
 }
 
-#predictButton {
-  background-color: #ffffff;
-  color: #000000;
-  border: none;
-  padding: 10px 20px 10px 15px;
-  font-size: 16px;
-  cursor: pointer;
-  transition: background-color 0.2s ease-in-out;
-  border-radius: 20px;
-}
-
 .subject {
-  float:left;
-  margin-right:10px;
+  float: left;
+  margin-right: 10px;
   margin: 5px;
 }
 
 #disease {
   clear: right;
-  font-size:large;
+  font-size: large;
 }
 
 #category {
   clear: right;
-  font-size:medium;
-  font-style:italic;
+  font-size: medium;
+  font-style: italic;
   color: rgb(126 126 126);
-  font-weight:normal
+  font-weight: normal
 }
