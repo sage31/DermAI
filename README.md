@@ -27,3 +27,6 @@ From this hackathon, we learned that keeping the momentum of the project high is
 
 ## What's next for DermAI
 While we are proud of DermAI, it is very much still a work-in-progress. The CSS and overall design could certainly use some work, and the website could have more features. Most importantly, we only trained the AI models on 3 broad categories of diseases, and 18 specific diseases for the purposes of this hackathon. However, in order to truly make DermAI an online dermatologist, it would need to know many more specific diseases. This would require much more data, and a lot more time. Furthermore, we feel that a mobile app would be a good area of expansion for DermAI in the future. While websites are easy and convenient on computers, a mobile app with a live camera would be ideal for use on a phone.
+
+## Run this code
+Clone the files locally and extract them to a folder. To run the website using Visual Studio Code, open the folder in a new VSCode window, and in the top left press run->run without debugging. In the console, you should be able to see the address at which the server is running locally. 
