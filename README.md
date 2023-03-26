@@ -1,5 +1,7 @@
 # DermAI
 Your online artificial intelligence based dermatologist.
+![Main page](https://i.imgur.com/TETsEf4.png)
+
 
 ## Inspiration
 The cost of medical consultations with a qualified physician can often be prohibitively expensive, with even a brief follow-up lasting just a few minutes costing upwards of hundreds of dollars. In particular, patients seeking consultations with dermatologists for possibly harmful skin conditions may hesitate due to the high costs involved. Yet, it is crucial to not overlook the significance of a visit to the dermatologist, since early detection of skin cancer is critical to prevent its potentially fatal consequences. Regrettably, many individuals remain unaware of this fact, and often do not realize they have skin cancer until it has progressed significantly. With over 2 million cases of skin cancer every year in the United States, we feel this is an urgent issue that needs to be solved--mitigated at the very least.
@@ -25,3 +27,6 @@ From this hackathon, we learned that keeping the momentum of the project high is
 
 ## What's next for DermAI
 While we are proud of DermAI, it is very much still a work-in-progress. The CSS and overall design could certainly use some work, and the website could have more features. Most importantly, we only trained the AI models on 3 broad categories of diseases, and 18 specific diseases for the purposes of this hackathon. However, in order to truly make DermAI an online dermatologist, it would need to know many more specific diseases. This would require much more data, and a lot more time. Furthermore, we feel that a mobile app would be a good area of expansion for DermAI in the future. While websites are easy and convenient on computers, a mobile app with a live camera would be ideal for use on a phone.
+
+## Run this code
+Clone the files locally and extract them to a folder. To run the website using Visual Studio Code, open the folder in a new VSCode window, and in the top left press run->run without debugging. In the console, you should be able to see the address at which the server is running locally. Testing photos can be found in the "test" folder. 
