@@ -21,10 +21,6 @@ def preprocess_image(img_path):
 app = Flask(__name__)
 
 app.config['UPLOAD_FOLDER'] = 'uploads'
-disease_types = ['Benign (noncancerous) lesion', 'Precancerous or cancerous lesion', 'Vascular lesion']
-benign_types = ['atypical nevi', 'becker nevus', 'unclassified benign skin lesion', 'blue nevus', 'congenital nevus', 'dermatofibroma', 'halo-nevus', 'melanocytic nevi']
-cancerous_types = ['basal cell carcinoma', 'Bowen\'s disease', 'melanoma']
-vascular_types = ['angiokeratomas', 'angiomas', 'kaposi sarcoma', 'pyogenic granulomas', 'telangiectasias', 'unclassified vascular lesion', 'venous malformation']
 
 @app.route('/')
 def index():
